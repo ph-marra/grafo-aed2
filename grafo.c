@@ -463,6 +463,10 @@ int BuscaEmProfundidadeTempo_(Grafo G, Vertice v, int* cont, Tempo* lv, int* t){
          vis++;
 
    *lv = (Tempo)malloc(vis*sizeof(struct visitaTempo));
+   if(*lv == NULL){
+      free(visitados);
+      return 0;
+   }
    *t = vis;
 
    for(i = 0, vis = 0; i < tam; i++)
@@ -570,6 +574,10 @@ int BuscaTodosTempo(Grafo G, Tempo* lv){
    }
 
    *lv = (Tempo)malloc(G->NumVert*sizeof(struct visitaTempo));
+   if(*lv == NULL){
+      free(tmps);
+      return 0;
+   }   
    
    for(i = 0; i < G->NumVert; i++)
       (*lv)[i] = tmps[i];
