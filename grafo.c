@@ -16,6 +16,7 @@ typedef struct auxDijkstra* Dijk;
 
 Grafo criarGrafoNulo(void){
    Grafo g = (Grafo) malloc(sizeof(struct grafo));
+   if(g == NULL) return g;
    g->NumVert = 0;
    g->NumArco = 0;
    g->vertices = NULL;
